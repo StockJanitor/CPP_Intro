@@ -22,7 +22,6 @@ using namespace std;
 // function declarations
 int partition(int numbers[], int i, int k);
 void quicksort(int numbers[], int i, int k);
-
 void selection_sort(int a[], int size);
 
 int main()
@@ -61,6 +60,12 @@ int main()
     }
     // *********** ABOVE is read file, load into vector, and copy to array ***********
 
+    // doesnt really work with the miliseconds.
+    // time_t a,b;
+    // cout << time(&a)<<endl;
+    // cout << time(&b) << endl;
+    // cout << difftime(a,b) << endl;
+
     // // i think this is the epoch of cpu
     clock_t startTime, endTime;
     // int size = 500000;
@@ -78,21 +83,6 @@ int main()
     cout << "This is " << vector_num.size() << ": ";
     cout << endTime - startTime << " clocks." << endl
          << endl;
-
-    // doesnt really work with the miliseconds.
-    // time_t a,b;
-    // cout << time(&a)<<endl;
-    // cout << time(&b) << endl;
-    // cout << difftime(a,b) << endl;
-
-    // // i think this is the epoch of cpu
-    // clock_t startTime, endTime;
-    // int size = 500000;
-    // int arr[size];
-    // for (int i = 0; i < size; i++)
-    // {
-    //     arr[i] = rand() % 100;
-    // }
 
     return 0;
 }
