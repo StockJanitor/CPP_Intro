@@ -1,3 +1,17 @@
+/*
+Exercise 4 – Timing Sorting Algorithm Collect the run times for either selection sort or insertion sort
+(use random values for an array and sorted values; sorted the list twice and collect run time each time)
+for the following array sizes: 10000, 20000, and 50000. You should be able to confirm that the runtime
+is n^2 for unsorted list (i.e., going from 10000 to 20000 should be about 4 times slower and going
+from 10000 to 50000 should be about 25 times slower).
+
+Extra Credit (2 points): Collect run times for {either selection sort or insertion sort from the book}
+and {either quick sort or merge sort from the book}.
+Input data from data file, large1k.txt, and output the first 5 values and last 5 values from the
+sorted list to confirm that the sorting algorithm is working correctly. Make sure to sort original
+data using one slower sorting algorithm and then sort original data again using one faster sorting algorithm.
+You should confirm the collected run times are reasonable.
+*/
 #include <iostream>
 #include <ctime>
 #include <vector>
