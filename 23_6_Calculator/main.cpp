@@ -6,8 +6,8 @@ using namespace std;
 int main()
 {
     Calculator calc;
-    double num1;
-    double num2;
+    int num1;
+    int num2;
 
     cin >> num1;
     cin >> num2;
@@ -32,9 +32,22 @@ int main()
     calc.Divide(2);
     cout << calc.GetValue() << endl;
 
+
+// FINAL PROBLEMS
+    calc.Power(3);
+    cout << calc.GetValue() << endl;
+
+    // Note: i used raw code, so it may approximate. 
+    // also commented out cmath method in Calculator.cpp
+    calc.SquareRoot();
+    cout << calc.GetValue() << endl;
+// FINAL PROBLEMS
+
+
     // 6. The value after calling the clear() method
     calc.Clear();
     cout << calc.GetValue() << endl;
+
 
     return 0;
 }

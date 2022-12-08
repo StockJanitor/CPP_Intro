@@ -13,7 +13,8 @@ class Calculator {
         void Divide(double a);
         void Clear();
         double GetValue();
-
+        void Power(double a);
+        void SquareRoot();
 	
 	private:
 	   // TODO: Declare private data member - value

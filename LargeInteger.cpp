@@ -14,6 +14,10 @@ void convertArray(string num, int array[], bool &invalid);
 void calculateNum(int array1[], int array2[], int result[], char sign, int first_size, int second_size, bool &overflow, bool &invalid);
 void printArray(int array[]);
 
+// Final Answers
+bool lessThan(const int array1[], const int array2[]);
+int compareTo(const int array1[], const int array2[]);
+
 int main()
 {
     // initialize variables
@@ -39,12 +43,43 @@ int main()
         calculateNum(array_one, array_two, result, sign, first_num.size(), second_num.size(), overflow, invalid);
     }
 
+    // OUTPUT SECTION
+
     // if not invalid/overflow, print array
     if (!invalid && !overflow)
     {
+        // print the first part (numbers, operator, and result)
         cout << first_num << ' ' << sign << ' ' << second_num << " = ";
         printArray(result);
+
+        // print second message (lessThan)
+        if (lessThan(array_one, array_two))
+        {
+            cout << "First operand is less than second operand." << endl;
+        }
+        else
+        {
+            cout << "First operand is not less than second operand." << endl;
+        }
+
+        // print third message (Professor's Code)
+        // Note: i changed result to compare, because i have result variable.
+        int compare = compareTo(array_one, array_two);
+        if (compare == 0)
+        {
+            cout << "Two operands are equal." << endl;
+        }
+        else if (compare < 0)
+        {
+            cout << "First operand is less than second operand." << endl;
+        }
+        else
+        {
+            cout << "First operand is greater than second operand." << endl;
+        }
     }
+
+    // OVERFLOW OR INVALID OUTPUTS
     if (overflow)
     {
         cout << item << " = "
@@ -56,6 +91,12 @@ int main()
     }
     return 0;
 }
+
+//////////////////////// Functions ////////////////////////
+//////////////////////// Functions ////////////////////////
+//////////////////////// Functions ////////////////////////
+//////////////////////// Functions ////////////////////////
+//////////////////////// Functions ////////////////////////
 
 // save to variable
 void getItems(string item, string &first_num, string &second_num, char &sign)
@@ -101,7 +142,6 @@ void convertArray(string num, int array[], bool &invalid)
     // check not above 20 number
     if (num.size() > 20)
     {
-        cout << "Invalid operand(s)" << endl;
         invalid = true;
     }
     else
@@ -150,6 +190,8 @@ void calculateNum(int array1[], int array2[], int result[], char sign, int num1,
             result[i] = (array1[i] + array2[i] + j >= 10) ? (array1[i] + array2[i] + j - 10) : (array1[i] + array2[i] + j);
             j = (array1[i] + array2[i] + j >= 10) ? 1 : 0;
         }
+
+        // check if overflow
         if (array1[0] + array2[0] + j >= 10)
         {
             // overflow!
@@ -213,4 +255,47 @@ void printArray(int array[])
         cout << 0;
     }
     cout << endl;
+}
+
+// FINAL
+bool lessThan(const int array1[], const int array2[])
+{
+    bool lessThan = false;
+    for (int i = 0; i < 20; i++)
+    {
+
+        // if from left to right, 1st number >, array 1 is larger
+        if (array1[i] > array2[i])
+        {
+            lessThan = false;
+        }
+        // if from left to right, 1st number <, array 1 is smaller
+        else if (array1[i] < array2[i])
+        {
+            lessThan = true;
+        }
+    }
+    return lessThan;
+}
+
+int compareTo(const int array1[], const int array2[])
+{
+    int compare = 0;
+    for (int i = 0; i < 20; i++)
+    {
+
+        // if from left to right, 1st number >, array 1 is larger
+        if (array1[i] > array2[i])
+        {
+            compare = 1;
+            break;
+        }
+        // if from left to right, 1st number <, array 1 is smaller
+        else if (array1[i] < array2[i])
+        {
+            compare = -1;
+            break;
+        }
+    }
+    return compare;
 }

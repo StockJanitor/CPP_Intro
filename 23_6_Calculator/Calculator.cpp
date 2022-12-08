@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Calculator.h"
+#include <cmath>
 using namespace std;
 
 // TODO: Define default constructor
@@ -37,3 +38,42 @@ double Calculator::GetValue()
 {
     return this->a;
 }
+
+// final part
+void Calculator::Power(double a)
+{
+    double multiply = this->a;
+
+    // start from 1 because the 1st operation has 2 already.
+    for (int i = 1; i<a;i++)
+    {
+        this->a *= multiply;
+    }
+}
+
+
+void Calculator::SquareRoot()
+{
+    // estimate of squareroot
+    double estimate_num = this->a/2;
+
+    // precision of result
+    double precision = 0.01;
+
+    // iterate untill desired precision
+    while (abs(estimate_num * estimate_num - this->a) > precision)
+    {
+        // using babylonian method proceed approximation.
+        estimate_num = (estimate_num + this->a / estimate_num)/2;
+    }
+
+    this->a = estimate_num;
+
+}
+
+// void Calculator::SquareRoot()
+// {
+
+//     this->a = sqrt(this->a);
+
+// }
